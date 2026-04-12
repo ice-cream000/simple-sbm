@@ -9,28 +9,28 @@ SBM はその確率分布の対数勾配（スコア）
 $\nabla_{\mathbf{x}} \log p(\mathbf{x})$
 を学習し，学習したスコアを用いたランジュバン・モンテカルロ法による探索によってデータを生成します．
 
-一般にデータ分布 $p(\bm{x})$ は未知であり，その対数勾配を直接計算することは困難です．そのため SBM では元データ $\bm{x}$ に対してガウス分布に従うノイズ
+一般にデータ分布 $p(\mathbf{x})$ は未知であり，その対数勾配を直接計算することは困難です．そのため SBM では元データ $\mathbf{x}$ に対してガウス分布に従うノイズ
 $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I})$
 を加えた
 
 $$
-\tilde{\bm{x}} = \bm{x} + \bm{\epsilon}
+\tilde{\mathbf{x}} = \mathbf{x} + \mathbf{\epsilon}
 $$
 
-を考え，このときの条件付き分布 $p_{\sigma}(\tilde{\bm{x}}|\bm{x})$ のスコアを学習します．
-$p_{\sigma}(\tilde{\bm{x}}|\bm{x})$ はガウス分布であり，
+を考え，このときの条件付き分布 $p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x})$ のスコアを学習します．
+$p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x})$ はガウス分布であり，
 
 $$
-p_{\sigma}(\tilde{\bm{x}}|\bm{x}) = \frac{1}{(2\pi\sigma^2)^{D/2}} 
-\exp\left(-\frac{\|\tilde{\bm{x}} - \bm{x}\|^2}{2\sigma^2}\right)
+p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) = \frac{1}{(2\pi\sigma^2)^{D/2}} 
+\exp\left(-\frac{\|\tilde{\mathbf{x}} - \mathbf{x}\|^2}{2\sigma^2}\right)
 $$
 
 となるため，その対数勾配は
 
 $$
-\nabla_{\tilde{\bm{x}}} \log p_{\sigma}(\tilde{\bm{x}}|\bm{x}) 
-= - \frac{\tilde{\bm{x}} - \bm{x}}{\sigma^2}
-= - \frac{\bm{\epsilon}}{\sigma^2}
+\nabla_{\tilde{\mathbf{x}}} \log p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) 
+= - \frac{\tilde{\mathbf{x}} - \mathbf{x}}{\sigma^2}
+= - \frac{\mathbf{\epsilon}}{\sigma^2}
 $$
 
 と解析的に求めることができ， SBM はこの値を目標にスコア関数をニューラルネットワーク等で学習します．
@@ -47,10 +47,10 @@ $$
 
 $$
 \sum_{t=1}^{T} w_t
-\mathbb{E}_{\bm{x}\sim p(\bm{x}),\, \tilde{\bm{x}}\sim \mathcal{N}(\bm{x}, \sigma_t^{2}\bm{I})}
+\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x}),\, \tilde{\mathbf{x}}\sim \mathcal{N}(\mathbf{x}, \sigma_t^{2}\mathbf{I})}
 \left[
 \left\|
-s_{\theta}(\tilde{\bm{x}}, \sigma_t) + \frac{\tilde{\bm{x}} - \bm{x}}{\sigma_t^2}
+s_{\theta}(\tilde{\mathbf{x}}, \sigma_t) + \frac{\tilde{\mathbf{x}} - \mathbf{x}}{\sigma_t^2}
 \right\|^2
 \right]
 $$
@@ -60,13 +60,13 @@ $$
 生成時には，大きなノイズスケールから開始し，徐々にノイズを小さくしながらランジュバン・モンテカルロ法によりサンプリングを行います．
 
 $$
-\bm{x}_{t,k} = \bm{x}_{t,k-1} 
-+ \alpha_t s_{\theta}(\bm{x}_{t,k-1}, \sigma_t)
-+ \sqrt{2\alpha_t}\,\bm{u}_k,
-\quad \bm{u}_k \sim \mathcal{N}(\bm{0}, \bm{I})
+\mathbf{x}_{t,k} = \mathbf{x}_{t,k-1} 
++ \alpha_t s_{\theta}(\mathbf{x}_{t,k-1}, \sigma_t)
++ \sqrt{2\alpha_t}\,\mathbf{u}_k,
+\quad \mathbf{u}_k \sim \mathcal{N}(\mathbf{0}, \mathbf{I})
 $$
 
-この更新を繰り返すことで，最終的に元の分布 $p(\bm{x})$ に従うサンプルを得ることができます．
+この更新を繰り返すことで，最終的に元の分布 $p(\mathbf{x})$ に従うサンプルを得ることができます．
 
 ---
 
