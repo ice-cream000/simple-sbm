@@ -2,6 +2,8 @@
 
 CIFAR-10 を用いた Score-Based Model の実装および生成・評価コードです．
 
+![sample](created_image/seed=2026_K=5_alpha=1e-05_num=100_euler=True.png)
+
 ## SBMの概要
 
 生成したいデータが何らかの確率分布 $p(\mathbf{x})$ に従っていると仮定します．  
@@ -108,11 +110,15 @@ python3 run.py \
 --min_sigma 0.01 \
 --max_sigma 50.0 \
 --save_dir './created_image' \
---seed 12345 \
+--seed 42 \
 --labels_all \
 --euler \
---save-per 1
+--save-per 0.2
 ```
+
+## 生成結果例
+
+![sample](created_image/seed=42_K=5_alpha=1e-05_num=100_euler=True.png)
 
 ## FID評価
 
@@ -137,9 +143,3 @@ python3 fid_run.py \
 上記の設定で学習および評価の結果は
 FID:  21.257583773075623
 となりました．
-
----
-
-## 生成結果例
-
-![sample](created_image/seed=42_K=5_alpha=1e-05_num=100_euler=True.png)
