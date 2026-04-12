@@ -100,7 +100,8 @@ python3 train.py \
 
 モデルの生成設定の一例は次の通りです．
 なお，以下のパラメータ設定を推奨します．
-$\alpha = 1\times10^{-5}$，$K = 5$，$\sigma_{\min} = 0.01$，$\sigma_{\max} = 50.0$．
+<br>
+$\alpha = 1\times10^{-5}$，$K = 5$，$\sigma_min = 0.01$，$\sigma_max = 50.0$．
 
 ```bash
 python3 run.py \
