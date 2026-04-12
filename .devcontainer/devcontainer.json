@@ -1,0 +1,30 @@
+{
+    "name": "SBM-Docker-Dev",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".." 
+    },
+    "runArgs": [
+        "--gpus=all",
+        "--shm-size=16gb"
+    ],
+    "workspaceFolder": "/workspace",
+    "mounts": [{
+            "source": "${localWorkspaceFolder}",
+            "target": "/workspace",
+            "type": "bind"
+        }
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/bin/python3"
+            }
+        }
+    }
+}

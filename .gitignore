@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+data/
+fid_datas/
+SavedModels/
