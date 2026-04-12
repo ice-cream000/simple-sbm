@@ -60,9 +60,7 @@ $$
 生成時には，大きなノイズスケールから開始し，徐々にノイズを小さくしながらランジュバン・モンテカルロ法によりサンプリングを行います．
 
 $$
-\mathbf{x}_{t,k} = \mathbf{x}_{t,k-1} 
-+ \alpha_t s_{\theta}(\mathbf{x}_{t,k-1}, \sigma_t)
-+ \sqrt{2\alpha_t}\,\mathbf{u}_k,
+\mathbf{x}_{t,k} = \mathbf{x}_{t,k-1} + \alpha_t s_{\theta}(\mathbf{x}_{t,k-1}, \sigma_t) + \sqrt{2\alpha_t}\,\mathbf{u}_k,
 \quad \mathbf{u}_k \sim \mathcal{N}(\mathbf{0}, \mathbf{I})
 $$
 
