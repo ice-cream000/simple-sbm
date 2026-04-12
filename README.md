@@ -1,4 +1,4 @@
-# Simple Score-Based Model (SBM)
+# Pytorh を用いた Score-Based Model (SBM) のシンプルな実装
 
 CIFAR-10 を用いた Score-Based Model の実装および生成・評価コードです．
 
