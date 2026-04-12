@@ -50,7 +50,7 @@ $$
 \mathbb{E}_{\mathbf{x}\sim p(\mathbf{x}),\, \tilde{\mathbf{x}}\sim \mathcal{N}(\mathbf{x}, \sigma_t^{2}\mathbf{I})}
 \left[
 \left\|
-s_{\theta}(\tilde{\mathbf{x}}, \sigma_t) + \frac{\tilde{\mathbf{x}} - \mathbf{x}}{\sigma_t^2}
+\frac{\mathbf{x} - \tilde{\mathbf{x}}}{\sigma_t^2} - s_{\theta}(\tilde{\mathbf{x}}, \sigma_t)
 \right\|^2
 \right]
 $$
