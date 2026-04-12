@@ -21,7 +21,7 @@ $$
 $p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x})$ はガウス分布であり，
 
 $$
-p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) = \frac{1}{(2\pi\sigma^2)^{D/2}} 
+p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) = \frac{1}{(2\pi)^{D/2}\sigma^{D}} 
 \exp\left(-\frac{\|\tilde{\mathbf{x}} - \mathbf{x}\|^2}{2\sigma^2}\right)
 $$
 
@@ -47,7 +47,7 @@ $$
 
 $$
 \sum_{t=1}^{T} w_t
-\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x}),\, \tilde{\mathbf{x}}\sim \mathcal{N}(\mathbf{x}, \sigma_t^{2}\mathbf{I})}
+\mathbb{E}_{\mathbf{x}\sim p(\mathbf{x}), \tilde{\mathbf{x}}\sim \mathcal{N}(\mathbf{x}, \sigma_t^{2}\mathbf{I})}
 \left[
 \left\|
 \frac{\mathbf{x} - \tilde{\mathbf{x}}}{\sigma_t^2} - s_{\theta}(\tilde{\mathbf{x}}, \sigma_t)
