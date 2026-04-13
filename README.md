@@ -104,6 +104,8 @@ python3 train.py \
 --save_dir ./SavedModels
 ```
 
+学習済みモデルは save_dir で指定したディレクトリ（上記の例では ./SavedModels ）に保存されます．
+
 ## 生成
 
 モデルの生成設定の一例は次の通りです．
@@ -126,6 +128,8 @@ python3 run.py \
 --euler \
 --save-per 0.2
 ```
+
+生成結果は save_dir で指定したディレクトリ（上記の例では ./created_image ）に保存されます．
 
 ## 生成結果の一例
 
