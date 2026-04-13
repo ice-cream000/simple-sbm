@@ -14,23 +14,22 @@ $\nabla_{\mathbf{x}} \log p(\mathbf{x})$
 ---
 
 一般に生成したいデータが従う分布 $p(\mathbf{x})$ は未知なため，その対数勾配の計算は困難です．
-そこで SBM では元データ $\mathbf{x}$ に対してガウス分布に従うノイズ
+そこで， SBM は解析的に求められる，元データ $\mathbf{x}$ に対してガウス分布に従うノイズ
 $\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I})$
-を加えた
+を加えた攪乱データ
 
 $$
 \tilde{\mathbf{x}} = \mathbf{x} + \mathbf{\epsilon}
 $$
 
-が従う確率分布 $p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x})$ のスコアを学習します．
-$p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x})$ は平均 $\mathbf{x}$，分散 $\sigma^{2}\mathbf{I}$ のガウス分布
+が従う平均 $\mathbf{x}$，分散 $\sigma^{2}\mathbf{I}$ のガウス分布 $p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x})$ 
 
 $$
 p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) = \frac{1}{(2\pi)^{D/2}\sigma^{D}} 
 \exp\left(-\frac{\|\tilde{\mathbf{x}} - \mathbf{x}\|^2}{2\sigma^2}\right)
 $$
 
-となるため，その対数勾配は
+のスコア
 
 $$
 \nabla_{\tilde{\mathbf{x}}} \log p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) 
@@ -38,7 +37,7 @@ $$
 = - \frac{\mathbf{\epsilon}}{\sigma^2}
 $$
 
-このように解析的に求めることができます． SBM はこの容易に求められるスコアを学習目標とし，
+を学習目標とし，
 ニューラルネットワーク等で表したパラメータ $\theta$ を持つスコア関数 $s_{\theta}(\tilde{\mathbf{x}}, \sigma)$ を学習します．
 本実装ではスコア関数として U-Net を使用しています．
 
