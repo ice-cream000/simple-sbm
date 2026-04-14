@@ -1,6 +1,6 @@
 # Pytorch による Score-Based Model (SBM) のシンプルな実装
 
-CIFAR-10 を用いた Score-Based Model の実装および生成，そして FID による評価コードです．
+CIFAR-10 を用いた Score-Based Model の実装および生成， FID による評価コードです．
 
 ![sample](created_image/seed=2026_K=5_alpha=1e-05_num=100_euler=True.png)
 
