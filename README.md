@@ -62,9 +62,11 @@ $$
 \mathbf{x}\sim p(\mathbf{x}), \tilde{\mathbf{x}} 
 \sim \mathcal{N}(\mathbf{x}, \sigma_t^{2}\mathbf{I})
 }
+\left[
 \left\|
 -\frac{\tilde{\mathbf{x}} - \mathbf{x}}{\sigma_{t}^2}-s_{\theta}(\tilde{\mathbf{x}}, \sigma_{t})
 \right\|^2
+\right]
 $$
 
 ---
