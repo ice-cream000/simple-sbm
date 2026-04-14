@@ -59,12 +59,10 @@ $$
 $$
 \sum_{t=1}^{T} w_t
 \mathbb{E}_{\mathbf{x}\sim p(\mathbf{x}),\, \tilde{\mathbf{x}}\sim \mathcal{N}(\mathbf{x}, \sigma_t^{2}\mathbf{I})}
-\bigg[
-\bigg\|
-- \frac{\tilde{\mathbf{x}} - \mathbf{x}}{\sigma_t^2}
-- s_{\theta}(\tilde{\mathbf{x}}, \sigma_t)
-\bigg\|^2
-\bigg]
+\left\|
+s_{\theta}(\tilde{\mathbf{x}}, \sigma_t)
++ \frac{\tilde{\mathbf{x}} - \mathbf{x}}{\sigma_t^2}
+\right\|^2
 $$
 
 ---
