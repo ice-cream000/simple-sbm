@@ -25,7 +25,7 @@ $$
 \tilde{\mathbf{x}} = \mathbf{x} + \mathbf{\epsilon}
 $$
 
-を用いて，$ \tilde{\mathbf{x}} $ が従う平均 $\mathbf{x}$，分散 $\sigma^{2}\mathbf{I}$ のガウス分布
+を用いて， $\tilde{\mathbf{x}}$ が従う平均 $\mathbf{x}$，分散 $\sigma^{2}\mathbf{I}$ のガウス分布
 
 $$
 p_{\sigma}(\tilde{\mathbf{x}}|\mathbf{x}) = \frac{1}{(2\pi)^{D/2}\sigma^{D}} 
