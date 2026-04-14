@@ -62,7 +62,6 @@ def main(args):
     print('='*60)
 
     for i in range(max_roop): 
-        # 既に生成された画像はスキップする
         check_img_path = os.path.join(generated_data_path, f'{i* args.batch_size}.png')
         if os.path.exists(check_img_path):
             print(f'Batch {i+1}/{max_roop}: Already exists, skipping...')
@@ -81,7 +80,7 @@ def main(args):
         print(f'Batch {i+1}/{max_roop}: Done')
     
 
-    # FIDスコアの計算
+    # FIDの計算
     subprocess.run(['python3', '-m', 'pytorch_fid', args.fid_dir + '/real', args.fid_dir + '/generated'], check=True)
 
 

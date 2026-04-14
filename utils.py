@@ -17,7 +17,7 @@ def fix_seeds(seed=0):
     torch.backends.cudnn.benchmark = False
 
 def check_folder_and_create(path):
-    if not os.path.exists(path): # フォルダが存在しない場合，新たに作成したことを一応知らせる
+    if not os.path.exists(path): 
         os.makedirs(path)
         print(f'Created New Folder: {path}')
     return path

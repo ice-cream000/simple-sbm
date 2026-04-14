@@ -3,7 +3,6 @@ import torch.nn as nn
 import math
 
 
-#-------------------------------CIFAR-10 32x32ピクセル用のUNetモデル-------------------------------
 def sinusoidal_embedding(x, L=16):
     frequencies = torch.exp(
         torch.linspace(

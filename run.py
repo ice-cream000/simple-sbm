@@ -65,8 +65,6 @@ def sampling(model, num_images, min_sigma, max_sigma, len_sigma, K, alpha, gamma
                 score = gamma * score_cond + (1 - gamma) * score_uncond
                 x = x + alpha_t * score + torch.sqrt(2 * alpha_t) * u_k
 
-            # save_perごとに生成過程を保存
-
             if save_per==1:
                 should_save = (t == len_sigma - 1)
             else:
@@ -188,7 +186,7 @@ if __name__ == '__main__':
     parser.add_argument('--min_sigma', type=float, default=0.01)
     parser.add_argument('--max_sigma', type=float, default=50.0)
     parser.add_argument('--K', type=int, default=10)
-    parser.add_argument('--alpha', type=float, default=0.00002)
+    parser.add_argument('--alpha', type=float, default=1e-5)
     parser.add_argument('--seed', type=int, default=2026)
     parser.add_argument('--save_dir', type=str, default='.')
     parser.add_argument('--euler', dest='euler', action='store_true')
